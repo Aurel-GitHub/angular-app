@@ -1,25 +1,27 @@
-import { LayoutModule } from './layout/layout.module';
-import { UserModule } from './user/user.module';
-import { HomeModule } from './home/home.module';
-import { BudgetModule } from './budget/budget.module';
-import { ExpenseModule } from './expense/expense.module';
+import { BudgetModule } from './pages/budget/budget.module';
+import { ExpenseModule } from './pages/expense/expense.module';
+import { UserModule } from './pages/user/user.module';
+import { HomeModule } from './pages/home/home.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+
 import { LayoutComponent } from './layout/layout.component';
+import { ComponentsModule } from './components/components.module';
+import { LayoutModule } from './layout/layout.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    ExpenseModule,
-    BudgetModule,
-    HomeModule,
+    BrowserModule,
+    ComponentsModule,
     LayoutModule,
-    UserModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

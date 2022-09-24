@@ -1,10 +1,10 @@
 import { LayoutComponent } from './layout/layout.component';
-import { UserComponent } from './user/user.component';
-import { ExpenseComponent } from './expense/expense.component';
+import { UserComponent } from './pages/user/user.component';
+import { ExpenseComponent } from './pages/expense/expense.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { BudgetComponent } from './budget/budget.component';
+import { HomeComponent } from './pages/home/home.component';
+import { BudgetComponent } from './pages/budget/budget.component';
 
 const routes: Routes = [
   {
