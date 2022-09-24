@@ -13,9 +13,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { ComponentsModule } from './components/components.module';
 import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
+import { BudgetDetailComponent } from './budget/budget-detail/budget-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, LayoutComponent],
+  declarations: [AppComponent, LayoutComponent, BudgetDetailComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
