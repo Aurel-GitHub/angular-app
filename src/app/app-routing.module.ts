@@ -11,11 +11,13 @@ import { ExpenseAddComponent } from './pages/expense/expense-add/expense-add.com
 import { BudgetAddComponent } from './pages/budget/budget-add/budget-add.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
+import { AuthenticationGuard } from './_helpers/authentication.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [AuthenticationGuard],
     children: [
       { path: '', component: HomeComponent },
       {
