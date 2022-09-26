@@ -2,6 +2,7 @@ import { AuthenticationModule } from './authentication/authentication.module';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,6 +23,8 @@ import { BudgetDetailComponent } from './budget/budget-detail/budget-detail.comp
     LayoutModule,
     PagesModule,
     AuthenticationModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
