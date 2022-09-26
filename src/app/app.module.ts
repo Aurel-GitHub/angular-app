@@ -1,7 +1,5 @@
-import { BudgetModule } from './pages/budget/budget.module';
-import { ExpenseModule } from './pages/expense/expense.module';
-import { UserModule } from './pages/user/user.module';
-import { HomeModule } from './pages/home/home.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -23,6 +21,7 @@ import { BudgetDetailComponent } from './budget/budget-detail/budget-detail.comp
     ComponentsModule,
     LayoutModule,
     PagesModule,
+    AuthenticationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
