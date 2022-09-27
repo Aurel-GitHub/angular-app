@@ -1,4 +1,3 @@
-import { AuthenticationService } from './../../../_services/authentication/authentication.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -8,7 +7,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private _authenticationService: AuthenticationService) {}
+  constructor() {}
 
   loginForm = new FormGroup({
     email: new FormControl(''),
@@ -17,7 +16,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this._authenticationService.login(this.loginForm);
+      console.warn('form values:', this.loginForm);
     }
   }
 }
