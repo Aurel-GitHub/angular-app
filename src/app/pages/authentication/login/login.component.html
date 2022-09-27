@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="group">
       <label for="email">Email</label>
       <input
@@ -21,7 +21,7 @@
         required />
     </div>
     <div class="group">
-      <button type="submit" [disabled]="!this.loginForm.valid">Login</button>
+      <button type="submit" [disabled]="!this.form.valid">Login</button>
     </div>
   </form>
 </div>
