@@ -8,4 +8,4 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [LoginComponent, RegisterComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {}
