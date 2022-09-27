@@ -9,8 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { BudgetComponent } from './pages/budget/budget.component';
 import { ExpenseAddComponent } from './pages/expense/expense-add/expense-add.component';
 import { BudgetAddComponent } from './pages/budget/budget-add/budget-add.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { RegisterComponent } from './authentication/register/register.component';
+import { LoginComponent } from './pages/authentication/login/login.component';
+import { RegisterComponent } from './pages/authentication/register/register.component';
 import { AuthenticationGuard } from './_helpers/authentication.guard';
 
 const routes: Routes = [
@@ -52,11 +52,11 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'login',
+    path: 'connexion',
     component: LoginComponent,
   },
   {
-    path: 'register',
+    path: 'inscription',
     component: RegisterComponent,
   },
   {
