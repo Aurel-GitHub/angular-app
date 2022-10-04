@@ -1,4 +1,5 @@
-import { ICredentials } from 'src/app/_interfaces';
+import { LocalStorageService } from 'src/app/_services/local-storage/local-storage.service';
+import { ICredentials, IAuthentication } from 'src/app/_interfaces';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from 'src/app/_services/authentication/authentication.service';
@@ -9,7 +10,10 @@ import { AuthenticationService } from 'src/app/_services/authentication/authenti
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(private _authenticationService: AuthenticationService) {}
+  constructor(
+    private _authenticationService: AuthenticationService,
+    private _localStorageService: LocalStorageService
+  ) {}
 
   form: FormGroup<{
     email: FormControl<string | null>;
@@ -27,11 +31,11 @@ export class LoginComponent {
       };
 
       this._authenticationService.login(credentials).subscribe({
-        complete: () => {
-          console.log('user connected');
-        },
+        complete: () => console.log('user connected'),
         error: (err: Error) => console.error('error:', err),
-        next: res => console.log('debug res ', res),
+        next: (res: IAuthentication) => {
+          this._localStorageService.setItemLocalStorage(res);
+        },
       });
     }
   }

@@ -1,3 +1,4 @@
+import { AuthenticationService } from 'src/app/_services/authentication/authentication.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -12,7 +13,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthenticationGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private _authenticationService: AuthenticationService
+  ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -21,6 +25,7 @@ export class AuthenticationGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    if (this._authenticationService.isLogged()) return true;
     return this.router.navigate(['/login']);
   }
 }
