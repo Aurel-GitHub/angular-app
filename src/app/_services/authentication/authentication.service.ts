@@ -10,11 +10,10 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) {}
 
   /**
-   * todo - change Observable<any>
    * @param credentials
    * @returns
    */
-  login(credentials: ICredentials): Observable<any> {
+  login(credentials: ICredentials): Observable<Object> {
     console.log('=> ', credentials);
     return this.httpClient.post(
       environment.host + '/api/auth/login',

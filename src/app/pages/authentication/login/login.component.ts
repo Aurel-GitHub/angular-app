@@ -31,6 +31,7 @@ export class LoginComponent {
           console.log('user connected');
         },
         error: (err: Error) => console.error('error:', err),
+        next: res => console.log('debug res ', res),
       });
     }
   }
