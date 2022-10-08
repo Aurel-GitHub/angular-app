@@ -10,7 +10,8 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) {}
 
   /**
-   * todo - change Observable<any>
+   * todo - set up unit test to login & islogged
+   * todo - set up e2e to test login & token in localstorage
    * @param credentials
    * @returns
    */
