@@ -1,2 +1,24 @@
-<p>expense works!</p>
+<h1>Expense Section</h1>
+<div class="container-list">
+  <h3>Budget List</h3>
+  <ng-container
+    *ngIf="
+      expensesList && expensesList.length > 0;
+      then expenseTemplate;
+      else errorTemplate
+    ">
+  </ng-container>
+  <ng-template #expenseTemplate>
+    <ul>
+      <li *ngFor="let expense of expensesList">
+        {{ expense.title }} - {{ expense.total | currency: 'EUR':true }}
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #errorTemplate>
+    <div class="loader"></div>
+  </ng-template>
+
+</div>
 <router-outlet></router-outlet>
+
