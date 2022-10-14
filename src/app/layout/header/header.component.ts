@@ -15,7 +15,6 @@ export class HeaderComponent {
 
   logout() {
     return this._authenticationService.disconnect().subscribe({
-      complete: () => console.log('user disconnected'),
       error: (err: Error) => console.error(err),
       next: () => {
         localStorage.clear(), this.router.navigate(['/login']);

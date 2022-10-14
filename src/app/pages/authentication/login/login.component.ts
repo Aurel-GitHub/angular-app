@@ -31,7 +31,6 @@ export class LoginComponent {
       };
 
       this._authenticationService.login(credentials).subscribe({
-        complete: () => console.log('user connected'),
         error: (err: Error) => console.error('error:', err),
         next: (res: IAuthentication) => {
           this._localStorageService.setItemLocalStorage(res);

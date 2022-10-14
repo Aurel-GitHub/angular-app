@@ -1,8 +1,23 @@
 <h1>Budget Section</h1>
 <div class="container-list">
   <h3>Budget List</h3>
-  <ul>
-    <!-- <li *ngFor="let item of budgetsList"></li> -->
-  </ul>
+  <ng-container
+    *ngIf="
+      budgetsList && budgetsList.length > 0;
+      then budgetTemplate;
+      else errorTemplate
+    ">
+  </ng-container>
+  <ng-template #budgetTemplate>
+    <ul>
+      <li *ngFor="let budget of budgetsList">
+        {{ budget.title }} - {{ budget.total | currency: 'EUR':true }}
+      </li>
+    </ul>
+  </ng-template>
+  <ng-template #errorTemplate>
+    <div class="loader"></div>
+  </ng-template>
+
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

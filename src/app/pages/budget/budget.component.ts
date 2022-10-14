@@ -9,6 +9,7 @@ import { BudgetService } from 'src/app/_services/budget/budget.service';
 })
 export class BudgetComponent implements OnInit {
   budgetsList!: IBudget[];
+  isLoading: boolean = false;
 
   constructor(private _budgetService: BudgetService) {}
 
@@ -17,10 +18,12 @@ export class BudgetComponent implements OnInit {
   }
 
   init() {
+    this.isLoading = true;
     this._budgetService.getAllBudgetByUserID().subscribe({
       error: (error: Error) => console.error(error),
       next: (data: IBudget[]) => {
         this.budgetsList = data;
+        this.isLoading = false;
       },
     });
   }
