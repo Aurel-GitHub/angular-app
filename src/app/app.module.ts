@@ -1,3 +1,4 @@
+import { TokenInterceptorProvider } from './_helpers/token.interceptor';
 import { AuthenticationModule } from './pages/authentication/authentication.module';
 
 import { NgModule } from '@angular/core';
@@ -27,7 +28,7 @@ import { PagesModule } from './pages/pages.module';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
