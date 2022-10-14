@@ -5,11 +5,10 @@ import { Injectable } from '@angular/core';
 import { IExpenses } from 'src/app/_interfaces/i-expenses';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ExpenseService {
-
-  constructor(private _httpClient: HttpClient) { }
+  constructor(private _httpClient: HttpClient) {}
 
   getAllExpensesByUserID(): Observable<IExpenses[]> {
     return this._httpClient.get<IExpenses[]>(
