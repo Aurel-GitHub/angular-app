@@ -26,4 +26,10 @@ export class AuthenticationService {
     const token = localStorage.getItem('token');
     return !!token;
   }
+
+  disconnect(): Observable<IAuthentication> {
+    return this.httpClient.get<IAuthentication>(
+      environment.host + '/api/auth/logout'
+    );
+  }
 }
