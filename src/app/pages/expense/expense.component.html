@@ -11,7 +11,10 @@
   <ng-template #expenseTemplate>
     <ul>
       <li *ngFor="let expense of expensesList">
-        {{ expense.title }} - {{ expense.total | currency: 'EUR':true }}
+        {{ expense.title }} - {{ expense.total | currency: 'EUR':true }} ||
+        <span
+          ><a [routerLink]="['/depense/detail/', expense._id]">Editer</a></span
+        >
       </li>
     </ul>
   </ng-template>
