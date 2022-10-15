@@ -1,0 +1,16 @@
+@use "../global/colors" as vars;
+
+.authentication-container {
+  display: flex;
+  flex-direction: column;
+  background-color: vars.$white;
+  height: 100%;
+  width: 100%;
+}
+
+.auth-form {
+  background-color: lavender;
+  margin: 0px auto;
+  justify-content: center;
+  padding-top: 10%;
+}
