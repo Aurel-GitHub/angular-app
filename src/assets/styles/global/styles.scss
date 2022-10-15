@@ -1,5 +1,16 @@
 /* === BASE STYLE === */
 
+@font-face {
+  font-family: 'DM Sans';
+  src: local("DM Sans"), url(./../../fonts/DMSans-Regular.ttf) format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+}
+
 /* Global */
 @import '_colors';
 @import '_global';
