@@ -1,4 +1,7 @@
-1 - Design login
-2 - udpdate responsive
-3  - Write unit test login
-4 - Set up 2e2 test login
+
+1 - add style error message
+2 - add color input if input is valid or not
+3 - create reusable input component
+4 - add login/register switch
+5  - Write unit test login
+6 - Set up 2e2 test login

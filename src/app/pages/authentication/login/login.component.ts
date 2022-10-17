@@ -1,7 +1,7 @@
 import { LocalStorageService } from 'src/app/_services/local-storage/local-storage.service';
 import { ICredentials, IAuthentication } from 'src/app/_interfaces';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/_services/authentication/authentication.service';
 
 @Component({
@@ -19,9 +19,24 @@ export class LoginComponent {
     email: FormControl<string | null>;
     password: FormControl<string | null>;
   }> = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
   });
+
+  get email() {
+    return this.form.controls.email;
+  }
+
+  get password() {
+    return this.form.controls.password;
+  }
 
   onSubmit() {
     if (this.form.valid) {
@@ -37,5 +52,10 @@ export class LoginComponent {
         },
       });
     }
+  }
+  debug() {
+    console.log('debug form', this.form);
+    console.log('debug key', Object.keys({}));
+
   }
 }
