@@ -15,7 +15,7 @@
 
     form {
       background-color: vars.$white;
-      padding: 20px;
+      padding: 2em;
       border: 1px solid #F4F5F6;
       border-radius: 10px;
       box-shadow: 0px 10px 110px 1px rgba(59, 59, 59, 0.08);
@@ -51,19 +51,49 @@
     }
     }
     button {
-      width: 100%;
+      width: 40em;
       height: 55px;
       margin-top: 2em;
       background-color: $purple-primary;
       border-radius: 10px;
-      color: $dark-7;
-      font-weight: 700;
-      font-size: 15px;
       line-height: 24px;
+      border-color: transparent;
       cursor: pointer;
+
+      &:hover {
+        opacity: 90%;
+      }
+      &:disabled {
+        opacity: 70%;
+        cursor: not-allowed;
+      }
+
+      span {
+        color: $dark-7;
+        font-weight: 700;
+        font-size: 18px;
+      }
     }
   }
-
-
 }
+
+@media only screen and (max-width: 950px) {
+  .authentication-container{
+    padding: 1em 0em !important;
+    display: flex;
+
+    form{
+      width: 17em;
+      padding: 1em 2em 2em 1em !important;
+
+      input {
+        width: 20em !important;
+      }
+    }
+    button {
+      width: 25em !important;
+    }
+  }
+}
+
 
