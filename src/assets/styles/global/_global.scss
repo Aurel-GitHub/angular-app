@@ -4,6 +4,7 @@
 h1 {
   font-size: 32px;
   color: $black-primary;
+  font-weight: 700;
 }
 
 h2 {
@@ -115,6 +116,11 @@ h6 {
   text-decoration: underline;
 }
 
+// Cursor Pointer
+.cursor-pointer {
+  cursor: pointer;
+}
+
 // Padding
 .p-0 {
   padding: 0;
@@ -185,6 +191,17 @@ h6 {
 }
 
 // Text
+.grey-light-text {
+  color: vars.$dark-2;
+  font-size: 16px;
+  font-weight: 700;
+}
+.purple-text {
+  color: vars.$purple-primary;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .text-bold {
   font-weight: bold;
 }
@@ -270,7 +287,9 @@ h6 {
   margin-bottom: 50px;
 }
 // left
-.ml-10 {
+.ml-5 {
+  margin-left: 5px;
+}.ml-10 {
   margin-left: 10px;
 }
 .ml-15 {
@@ -285,3 +304,19 @@ h6 {
 .ml-60 {
   margin-left: 60px;
 }
+
+//vertical
+
+.my-5{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.my-10{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.my-15{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+//horizontal

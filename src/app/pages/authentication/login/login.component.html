@@ -1,6 +1,11 @@
 <div class="authentication-container">
   <div class="auth-form">
-    <h1>Get Started</h1>
+    <h1 class="d-flex flex-row">Get's started.</h1>
+    <span class="grey-light-text d-flex flex-row my-15"
+      >Don't have an account?<span class="purple-text ml-5 cursor-pointer"
+        ><a>Sign up</a></span
+      ></span
+    >
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="group">
         <label for="email">Email</label>
@@ -22,10 +27,7 @@
           minlength="5"
           required />
       </div>
-      <div class="group">
-        <button type="submit" [disabled]="!this.form.valid">Login</button>
-      </div>
     </form>
+    <button type="submit" [disabled]="!this.form.valid">Login</button>
   </div>
-
 </div>
