@@ -7,7 +7,19 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./errors-message.component.scss'],
 })
 export class ErrorsMessageComponent {
-  @Input() field!: FormControl<string | number | boolean | null>;
+  @Input() field?: FormControl<string | number | boolean | undefined | null>;
+
+  errorMessageFromInput(inputCtrl: FormControl): string | void {
+    if (inputCtrl.errors && inputCtrl.touched) {
+      if (inputCtrl.errors['required']) {
+        return 'This field is required';
+      } else if (inputCtrl.errors['minlength']) {
+        return `Please enter ${inputCtrl.errors['minlength']['requiredLength']} characters minimum`;
+      } else if (inputCtrl.errors['pattern']) {
+        return 'Email Adress invalid';
+      }
+    }
+  }
 
   constructor() {}
 }
