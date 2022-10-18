@@ -1,3 +1,5 @@
-<div *ngIf="field" class="error-message">
-  {{ errorMessageFromInput(field) }}
-</div>
+<ng-container *ngIf="field">
+  <div class="input-error">
+    {{ errorMessageFromInput(field) }}
+  </div>
+</ng-container>
