@@ -3,6 +3,7 @@ import { ICredentials, IAuthentication } from 'src/app/_interfaces';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/_services/authentication/authentication.service';
+import { iif } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -36,6 +37,15 @@ export class LoginComponent {
 
   get password() {
     return this.form.controls.password;
+  }
+
+  handleColorInput(inputCtrl: FormControl): string {
+    if (inputCtrl.errors && inputCtrl.touched) {
+      return '#FF6370';
+    } else if (inputCtrl.status === 'VALID' && inputCtrl.touched) {
+      return '#70CF97';
+    }
+    return '#1F2128';
   }
 
   onSubmit() {
