@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-errors-message',
   templateUrl: './errors-message.component.html',
-  styleUrls: ['./errors-message.component.scss']
+  styleUrls: ['./errors-message.component.scss'],
 })
-export class ErrorsMessageComponent implements OnInit {
+export class ErrorsMessageComponent {
+  @Input() field!: FormControl<string | number | boolean | null>;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor() {}
 }

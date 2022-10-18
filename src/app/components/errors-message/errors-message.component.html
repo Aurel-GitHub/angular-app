@@ -1,1 +1,8 @@
-<p>errors-message works!</p>
+<div *ngIf="field.errors && field.touched" class="error-message">
+  <div *ngIf="field.errors['required']">This field is required</div>
+  <div *ngIf="field.errors['minlength']">
+    Please enter
+    {{ field.errors['minlength']['requiredLength'] }} characters minimum.
+  </div>
+  <div *ngIf="field.errors['pattern']">Email adress invalid</div>
+</div>

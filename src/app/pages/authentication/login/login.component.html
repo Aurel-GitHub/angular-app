@@ -8,17 +8,8 @@
     >
     <form [formGroup]="form">
       <div class="group">
-        <app-errors-message></app-errors-message>
         <label for="email">Email</label>
-        <div *ngIf="email.errors && email.touched" class="alert alert-danger">
-          <div *ngIf="email.errors['required']">This field is required</div>
-          <div *ngIf="email.errors['minlength']">
-            Please enter
-            {{ email.errors['minlength']['requiredLength'] }} characters
-            minimum.
-          </div>
-          <div *ngIf="email.errors['pattern']">Email adress invalid</div>
-        </div>
+        <app-errors-message [field]="email"></app-errors-message>
         <input
           type="text"
           name="email"
@@ -28,16 +19,7 @@
       </div>
       <div class="group">
         <label for="password">Password</label>
-        <div
-          *ngIf="password.errors && password.touched"
-          class="alert alert-danger">
-          <div *ngIf="password.errors['required']">This field is required</div>
-          <div *ngIf="password.errors['minlength']">
-            Please enter
-            {{ password.errors['minlength']['requiredLength'] }} characters
-            minimum.
-          </div>
-        </div>
+        <app-errors-message [field]="password"></app-errors-message>
         <input
           type="password"
           name="password"

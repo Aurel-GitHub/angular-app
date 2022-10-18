@@ -1,0 +1,7 @@
+@use '/src//assets/styles/global/colors' as vars;
+
+.error-message {
+  font-size: 14px;
+  color: vars.$red-secondary;
+  margin-bottom: 0.5em;
+}
