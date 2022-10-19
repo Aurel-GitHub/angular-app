@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutModule } from './layout/layout.module';
 import { PagesModule } from './pages/pages.module';
+import { AuthenticationModule } from './pages/authentication/authentication.module';
 
 @NgModule({
   declarations: [AppComponent, LayoutComponent],
@@ -23,6 +24,7 @@ import { PagesModule } from './pages/pages.module';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    AuthenticationModule,
   ],
   providers: [TokenInterceptorProvider],
   bootstrap: [AppComponent],
