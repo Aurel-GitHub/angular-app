@@ -5,6 +5,7 @@ import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
 import { BudgetModule } from './budget/budget.module';
 import { ExpenseModule } from './expense/expense.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { ExpenseModule } from './expense/expense.module';
     UserModule,
     BudgetModule,
     ExpenseModule,
+    TranslateModule,
   ],
 })
 export class PagesModule {}

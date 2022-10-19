@@ -1,9 +1,22 @@
 <div class="authentication-container">
   <div class="auth-form">
-    <h1 class="d-flex flex-row">Get's started.</h1>
-    <span class="grey-light-text d-flex flex-row my-15"
-      >Don't have an account?<span class="purple-text ml-5 cursor-pointer"
-        ><a>Sign up</a></span
+    <h1 class="d-flex flex-row">{{ 'common.get_started' | translate }}</h1>
+    <span class="grey-light-text d-flex flex-row my-15">
+      <ng-template
+        *ngIf="
+          !isSignupFormActived;
+          then dontHaveAccountBlock;
+          else haveAlreadyAccountBlock
+        "></ng-template>
+      <ng-template #dontHaveAccountBlock> Don't have an account? </ng-template>
+      <ng-template #haveAlreadyAccountBlock>
+        Have already an account?
+      </ng-template>
+
+      <span class="purple-text ml-5 cursor-pointer"
+        ><a class="cursor-pointer" (click)="handleFormInputs()">
+          Sign up
+        </a></span
       ></span
     >
     <form [formGroup]="form">

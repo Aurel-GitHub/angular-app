@@ -15,6 +15,7 @@ export class LoginComponent {
     private _authenticationService: AuthenticationService,
     private _localStorageService: LocalStorageService
   ) {}
+  isSignupFormActived: boolean = false;
   errorFromApi!: HttpErrorResponse;
   form: FormGroup<{
     email: FormControl<string | null>;
@@ -46,6 +47,12 @@ export class LoginComponent {
       return '#70CF97';
     }
     return '#1F2128';
+  }
+
+  handleFormInputs() {
+    !this.isSignupFormActived
+      ? (this.isSignupFormActived = true)
+      : (this.isSignupFormActived = false);
   }
 
   onSubmit() {
