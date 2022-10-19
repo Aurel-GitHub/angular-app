@@ -13,7 +13,9 @@
     >
     <form [formGroup]="form">
       <div class="group">
-        <label for="email">Email</label>
+        <label for="email">{{
+          'authentication.form.email_label' | translate
+        }}</label>
         <app-errors-message [field]="email"></app-errors-message>
         <input
           type="text"
@@ -24,7 +26,9 @@
           required />
       </div>
       <div class="group">
-        <label for="password">Password</label>
+        <label for="password">{{
+          'authentication.form.password_label' | translate
+        }}</label>
         <app-errors-message [field]="password"></app-errors-message>
         <input
           type="password"
@@ -34,6 +38,34 @@
           formControlName="password"
           required />
       </div>
+      <ng-container *ngIf="isSignupFormActived">
+        <div class="group">
+          <label for="firstname">{{
+            'authentication.form.firstname_label' | translate
+          }}</label>
+          <app-errors-message [field]="firstname"></app-errors-message>
+          <input
+            type="firstname"
+            name="firstname"
+            id="firstname"
+            [ngStyle]="{ borderColor: handleColorInput(firstname) }"
+            formControlName="firstname"
+            required />
+        </div>
+        <div class="group">
+          <label for="lastname">{{
+            'authentication.form.lastname_label' | translate
+          }}</label>
+          <app-errors-message [field]="lastname"></app-errors-message>
+          <input
+            type="lastname"
+            name="lastname"
+            id="lastname"
+            [ngStyle]="{ borderColor: handleColorInput(lastname) }"
+            formControlName="lastname"
+            required />
+        </div>
+      </ng-container>
     </form>
     <app-errors-message [errorFromApi]="errorFromApi"></app-errors-message>
     <span (click)="debug()">debug</span>

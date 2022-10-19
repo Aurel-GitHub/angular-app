@@ -22,6 +22,8 @@ export class LoginComponent {
   form: FormGroup<{
     email: FormControl<string | null>;
     password: FormControl<string | null>;
+    firstname: FormControl<string | null>;
+    lastname: FormControl<string | null>;
   }> = new FormGroup({
     email: new FormControl('', [
       Validators.required,
@@ -32,6 +34,8 @@ export class LoginComponent {
       Validators.required,
       Validators.minLength(8),
     ]),
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
   });
 
   get email() {
@@ -40,6 +44,14 @@ export class LoginComponent {
 
   get password() {
     return this.form.controls.password;
+  }
+
+  get firstname() {
+    return this.form.controls.firstname;
+  }
+
+  get lastname() {
+    return this.form.controls.lastname;
   }
 
   handleColorInput(inputCtrl: FormControl): string {
@@ -58,7 +70,6 @@ export class LoginComponent {
       this.buttonLabel = 'authentication.button.label_signup';
     } else {
       this.isSignupFormActived = false;
-
       this.haveAccountLabel = 'authentication.have_already_account';
       this.buttonLabel = 'authentication.button.label_login';
     }

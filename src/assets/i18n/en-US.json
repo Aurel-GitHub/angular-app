@@ -3,6 +3,12 @@
     "get_started": "Get's started.",
     "dont_have_account": "Don't have an account?",
     "have_already_account":"Have already an account?",
+    "form": {
+      "email_label": "Email",
+      "password_label": "Password",
+      "firstname_label": "Firstname",
+      "lastname_label": "Lastname"
+    },
     "button": {
       "label_login": "Login",
       "label_signup": "Sign up"
