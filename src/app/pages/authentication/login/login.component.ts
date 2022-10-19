@@ -16,6 +16,8 @@ export class LoginComponent {
     private _localStorageService: LocalStorageService
   ) {}
   isSignupFormActived: boolean = false;
+  haveAccountLabel: string = 'authentication.dont_have_account';
+  buttonLabel: string = 'authentication.button.label_signup';
   errorFromApi!: HttpErrorResponse;
   form: FormGroup<{
     email: FormControl<string | null>;
@@ -49,10 +51,17 @@ export class LoginComponent {
     return '#1F2128';
   }
 
-  handleFormInputs() {
-    !this.isSignupFormActived
-      ? (this.isSignupFormActived = true)
-      : (this.isSignupFormActived = false);
+  handleForm() {
+    if (!this.isSignupFormActived) {
+      this.isSignupFormActived = true;
+      this.haveAccountLabel = 'authentication.dont_have_account';
+      this.buttonLabel = 'authentication.button.label_signup';
+    } else {
+      this.isSignupFormActived = false;
+
+      this.haveAccountLabel = 'authentication.have_already_account';
+      this.buttonLabel = 'authentication.button.label_login';
+    }
   }
 
   onSubmit() {

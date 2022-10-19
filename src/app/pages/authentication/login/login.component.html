@@ -1,21 +1,13 @@
 <div class="authentication-container">
   <div class="auth-form">
-    <h1 class="d-flex flex-row">{{ 'common.get_started' | translate }}</h1>
+    <h1 class="d-flex flex-row">
+      {{ 'authentication.get_started' | translate }}
+    </h1>
     <span class="grey-light-text d-flex flex-row my-15">
-      <ng-template
-        *ngIf="
-          !isSignupFormActived;
-          then dontHaveAccountBlock;
-          else haveAlreadyAccountBlock
-        "></ng-template>
-      <ng-template #dontHaveAccountBlock> Don't have an account? </ng-template>
-      <ng-template #haveAlreadyAccountBlock>
-        Have already an account?
-      </ng-template>
-
+      {{ haveAccountLabel | translate }}
       <span class="purple-text ml-5 cursor-pointer"
-        ><a class="cursor-pointer" (click)="handleFormInputs()">
-          Sign up
+        ><a class="cursor-pointer" (click)="handleForm()">
+          {{ buttonLabel | translate }}
         </a></span
       ></span
     >
@@ -46,7 +38,7 @@
     <app-errors-message [errorFromApi]="errorFromApi"></app-errors-message>
     <span (click)="debug()">debug</span>
     <button type="submit" (click)="onSubmit()" [disabled]="!this.form.valid">
-      <span>Login</span>
+      <span> {{ buttonLabel | translate }} </span>
     </button>
   </div>
 </div>

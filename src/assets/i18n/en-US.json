@@ -1,6 +1,11 @@
 {
-  "test": "test",
-  "common": {
-    "get_started": "Get's started."
+  "authentication": {
+    "get_started": "Get's started.",
+    "dont_have_account": "Don't have an account?",
+    "have_already_account":"Have already an account?",
+    "button": {
+      "label_login": "Login",
+      "label_signup": "Sign up"
+    }
   }
 }
