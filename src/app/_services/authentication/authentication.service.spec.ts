@@ -16,6 +16,11 @@ fdescribe('AuthenticationService', () => {
     firstname: 'Unit',
     lastname: 'Test',
   };
+  const userLogged: IAuthentication = {
+    firstname: 'Unit',
+    userId: 'dsdffdf334',
+    token: 'S23EDC33DF23REZ',
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -29,12 +34,7 @@ fdescribe('AuthenticationService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return user<IAuthentication>', () => {
-    const userLogged: IAuthentication = {
-      firstname: 'John',
-      userId: 'dsdffdf334',
-      token: 'S23EDC33DF23REZ',
-    };
+  it('should login a user', () => {
     service.login(credentials).subscribe((response: IAuthentication) => {
       expect(response).toEqual(userLogged);
     });
@@ -42,6 +42,32 @@ fdescribe('AuthenticationService', () => {
     const req = httpController.expectOne({
       method: 'POST',
       url: `${environment.host}/api/auth/login`,
+    });
+
+    req.flush(userLogged);
+  });
+
+  it('should signup a new user', () => {
+    service.signup(credentials).subscribe((response: IAuthentication) => {
+      expect(response).toEqual(userLogged);
+    });
+
+    const req = httpController.expectOne({
+      method: 'POST',
+      url: `${environment.host}/api/auth/signup`,
+    });
+
+    req.flush(userLogged);
+  });
+
+  it('should disconnect a  user', () => {
+    service.disconnect().subscribe((response: IAuthentication) => {
+      expect(response).toEqual(userLogged);
+    });
+
+    const req = httpController.expectOne({
+      method: 'GET',
+      url: `${environment.host}/api/auth/logout`,
     });
 
     req.flush(userLogged);

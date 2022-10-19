@@ -10,7 +10,6 @@ export class AuthenticationService {
   constructor(private httpClient: HttpClient) {}
 
   login(credentials: ICredentials): Observable<IAuthentication> {
-    console.log('HELLO FROM SERVICE');
     return this.httpClient.post<IAuthentication>(
       environment.host + '/api/auth/login',
       credentials
