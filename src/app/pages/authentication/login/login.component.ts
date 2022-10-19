@@ -82,6 +82,7 @@ export class LoginComponent {
         password: this.form.value.password,
       };
       /**
+       * todo - mettre required conditionné dans le template de first,lastname
        * todo - ajouter dans la condition en fonction du mode
        * todo - ajouter dans le credentials les props manquantes
        * todo - mettre en place le service en fonction du mode
@@ -96,9 +97,5 @@ export class LoginComponent {
         },
       });
     }
-  }
-  debug() {
-    console.log('debug form', this.form);
-    console.log('debug key', Object.keys({}));
   }
 }
