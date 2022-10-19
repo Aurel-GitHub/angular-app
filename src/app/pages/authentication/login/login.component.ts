@@ -3,7 +3,7 @@ import { ICredentials, IAuthentication } from 'src/app/_interfaces';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/_services/authentication/authentication.service';
-import { iif } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,7 @@ export class LoginComponent {
     private _authenticationService: AuthenticationService,
     private _localStorageService: LocalStorageService
   ) {}
-
+  errorFromApi!: HttpErrorResponse;
   form: FormGroup<{
     email: FormControl<string | null>;
     password: FormControl<string | null>;
@@ -56,7 +56,10 @@ export class LoginComponent {
       };
 
       this._authenticationService.login(credentials).subscribe({
-        error: (err: Error) => console.error('error:', err),
+        error: (error: HttpErrorResponse) => {
+          this.errorFromApi = error;
+          console.error('error:', error);
+        },
         next: (res: IAuthentication) => {
           this._localStorageService.setItemLocalStorage(res);
         },
@@ -66,6 +69,5 @@ export class LoginComponent {
   debug() {
     console.log('debug form', this.form);
     console.log('debug key', Object.keys({}));
-
   }
 }

@@ -30,6 +30,7 @@
           required />
       </div>
     </form>
+    <app-errors-message [errorFromApi]="errorFromApi"></app-errors-message>
     <span (click)="debug()">debug</span>
     <button type="submit" (click)="onSubmit()" [disabled]="!this.form.valid">
       <span>Login</span>

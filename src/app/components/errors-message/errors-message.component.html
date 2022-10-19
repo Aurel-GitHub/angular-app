@@ -3,3 +3,9 @@
     {{ errorMessageFromInput(field) }}
   </div>
 </ng-container>
+
+<ng-container *ngIf="errorFromApi">
+  <div class="input-error mt-5">
+    {{ errorFromApi.error.error }}
+  </div>
+</ng-container>

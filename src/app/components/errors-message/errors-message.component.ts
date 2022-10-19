@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 
@@ -8,6 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ErrorsMessageComponent {
   @Input() field?: FormControl<string | number | boolean | undefined | null>;
+  @Input() errorFromApi?: HttpErrorResponse;
 
   errorMessageFromInput(inputCtrl: FormControl): string | void {
     if (inputCtrl.errors && inputCtrl.touched) {

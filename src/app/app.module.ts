@@ -1,5 +1,4 @@
 import { TokenInterceptorProvider } from './_helpers/token.interceptor';
-import { AuthenticationModule } from './pages/authentication/authentication.module';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

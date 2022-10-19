@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ErrorsMessageComponent } from './errors-message/errors-message.component';
 
 @NgModule({
-  declarations: [ErrorsMessageComponent],
+  declarations: [],
   imports: [CommonModule, RouterModule],
   exports: [],
 })
