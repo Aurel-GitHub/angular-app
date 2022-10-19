@@ -50,7 +50,7 @@
             id="firstname"
             [ngStyle]="{ borderColor: handleColorInput(firstname) }"
             formControlName="firstname"
-            required />
+            [required]="isSignupFormActived" />
         </div>
         <div class="group">
           <label for="lastname">{{
@@ -63,7 +63,7 @@
             id="lastname"
             [ngStyle]="{ borderColor: handleColorInput(lastname) }"
             formControlName="lastname"
-            required />
+            [required]="isSignupFormActived" />
         </div>
       </ng-container>
     </form>

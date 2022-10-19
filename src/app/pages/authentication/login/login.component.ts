@@ -34,8 +34,8 @@ export class LoginComponent {
       Validators.required,
       Validators.minLength(8),
     ]),
-    firstname: new FormControl(''),
-    lastname: new FormControl(''),
+    firstname: new FormControl('', [Validators.minLength(3)]),
+    lastname: new FormControl('', [Validators.minLength(3)]),
   });
 
   get email() {
@@ -75,27 +75,42 @@ export class LoginComponent {
     }
   }
 
+  login(credentials: ICredentials) {
+    this._authenticationService.login(credentials).subscribe({
+      error: (error: HttpErrorResponse) => {
+        this.errorFromApi = error;
+        console.error('error:', error);
+      },
+      next: (res: IAuthentication) => {
+        this._localStorageService.setItemLocalStorage(res);
+      },
+    });
+  }
+
   onSubmit() {
     if (this.form.valid) {
-      const credentials: ICredentials = {
-        email: this.form.value.email,
-        password: this.form.value.password,
-      };
-      /**
-       * todo - mettre required conditionné dans le template de first,lastname
-       * todo - ajouter dans la condition en fonction du mode
-       * todo - ajouter dans le credentials les props manquantes
-       * todo - mettre en place le service en fonction du mode
-       */
-      this._authenticationService.login(credentials).subscribe({
-        error: (error: HttpErrorResponse) => {
-          this.errorFromApi = error;
-          console.error('error:', error);
-        },
-        next: (res: IAuthentication) => {
-          this._localStorageService.setItemLocalStorage(res);
-        },
-      });
+      let credentials!: ICredentials;
+      if (!this.isSignupFormActived) {
+        credentials = {
+          email: this.email.value,
+          password: this.password.value,
+        };
+        this.login(credentials);
+      } else {
+        credentials = {
+          email: this.email.value,
+          password: this.password.value,
+          firstname: this.firstname.value,
+          lastname: this.lastname.value,
+        };
+        this._authenticationService.signup(credentials).subscribe({
+          error: (error: HttpErrorResponse) => {
+            this.errorFromApi = error;
+            console.error(error);
+          },
+          next: () => this.login(credentials),
+        });
+      }
     }
   }
 }

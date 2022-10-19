@@ -15,6 +15,12 @@ export class AuthenticationService {
       credentials
     );
   }
+  signup(credentials: ICredentials): Observable<IAuthentication> {
+    return this.httpClient.post<IAuthentication>(
+      environment.host + '/api/auth/signup',
+      credentials
+    );
+  }
 
   isLogged(): boolean {
     const token = localStorage.getItem('token');
