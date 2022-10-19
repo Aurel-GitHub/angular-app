@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http/testing';
 import { environment } from 'src/environments/environment';
 
-fdescribe('AuthenticationService', () => {
+describe('AuthenticationService', () => {
   let service: AuthenticationService;
   let httpController: HttpTestingController;
   const credentials: ICredentials = {
