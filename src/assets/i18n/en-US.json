@@ -10,8 +10,8 @@
       "lastname_label": "Lastname"
     },
     "button": {
-      "label_login": "Login",
-      "label_signup": "Sign up"
+      "label_signup": "Sign up",
+      "label_signin": "Sign in"
     }
   }
 }

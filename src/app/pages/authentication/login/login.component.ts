@@ -66,12 +66,12 @@ export class LoginComponent {
   handleForm() {
     if (!this.isSignupFormActived) {
       this.isSignupFormActived = true;
-      this.haveAccountLabel = 'authentication.dont_have_account';
-      this.buttonLabel = 'authentication.button.label_signup';
+      this.haveAccountLabel = 'authentication.have_already_account';
+      this.buttonLabel = 'authentication.button.label_signin';
     } else {
       this.isSignupFormActived = false;
-      this.haveAccountLabel = 'authentication.have_already_account';
-      this.buttonLabel = 'authentication.button.label_login';
+      this.haveAccountLabel = 'authentication.dont_have_account';
+      this.buttonLabel = 'authentication.button.label_signup';
     }
   }
 
@@ -81,7 +81,11 @@ export class LoginComponent {
         email: this.form.value.email,
         password: this.form.value.password,
       };
-
+      /**
+       * todo - ajouter dans la condition en fonction du mode
+       * todo - ajouter dans le credentials les props manquantes
+       * todo - mettre en place le service en fonction du mode
+       */
       this._authenticationService.login(credentials).subscribe({
         error: (error: HttpErrorResponse) => {
           this.errorFromApi = error;
