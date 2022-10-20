@@ -22,8 +22,39 @@ describe('Login', () => {
 });
 
 describe('Register', () => {
-  // todo - firstname invalid
-  // todo - lastname invalid
-  // todo - remplir les champs email et password et ensuite se rediriger sur le register form
+  it('Should Firsntame input is invalid', () => {
+    cy.visit('/login');
+    cy.url().should('include', 'login');
+    cy.get('a').click();
+    cy.get('[formControlName="email"]').type('toto@gmail.com');
+    cy.get('[formControlName="password"]').type('123456789');
+    cy.get('[formControlName="firstname"]').should('have.value', '');
+    cy.get('[formControlName="lastname"]').type('toto');
+    cy.get('button').should('be.disabled');
+  });
+
+  it('Should Lastname input is invalid', () => {
+    cy.visit('/login');
+    cy.url().should('include', 'login');
+    cy.get('a').click();
+    cy.get('[formControlName="email"]').type('toto@gmail.com');
+    cy.get('[formControlName="password"]').type('123456789');
+    cy.get('[formControlName="firstname"]').type('toto');
+    cy.get('[formControlName="lastname"]').should('have.value', '');
+    cy.get('button').should('be.disabled');
+  });
+
+  it('Should register form is invalid after set values in login form before', () => {
+    cy.visit('/login');
+    cy.url().should('include', 'login');
+    cy.get('[formControlName="email"]').type('toto@gmail.com');
+    cy.get('[formControlName="password"]').type('123456789');
+    cy.get('a').click();
+    cy.get('[formControlName="firstname"]').type('toto');
+    cy.get('[formControlName="lastname"]').type('toto');
+    cy.get('button').click();
+    cy.login('toto@gmail.com', '123456789');
+  });
+  //todo pre remplir le register retirer le firstname et retourner au login et avoir le btn valid
   // todo -faire passer le test avec toute les bonnes infos
 });
