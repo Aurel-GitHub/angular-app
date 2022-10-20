@@ -1,4 +1,4 @@
-describe('login', () => {
+describe('Login', () => {
   it('Should Email input is invalid', () => {
     cy.visit('/login');
     cy.url().should('include', 'login');
@@ -19,4 +19,11 @@ describe('login', () => {
     cy.login('doe@gmail.com', 'doe@gmail.com');
     cy.url().should('include', '/');
   });
+});
+
+describe('Register', () => {
+  // todo - firstname invalid
+  // todo - lastname invalid
+  // todo - remplir les champs email et password et ensuite se rediriger sur le register form
+  // todo -faire passer le test avec toute les bonnes infos
 });
