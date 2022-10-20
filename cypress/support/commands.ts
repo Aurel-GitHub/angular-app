@@ -3,18 +3,21 @@
 // with Intellisense and code completion in your
 // IDE or Text Editor.
 // ***********************************************
-// declare namespace Cypress {
-//   interface Chainable<Subject = any> {
-//     customCommand(param: any): typeof customCommand;
-//   }
-// }
-//
-// function customCommand(param: any): void {
-//   console.warn(param);
-// }
-//
-// NOTE: You can use it like so:
-// Cypress.Commands.add('customCommand', customCommand);
+declare namespace Cypress {
+  interface Chainable<Subject = any> {
+    login(email: string, password: string): typeof login;
+  }
+}
+
+function login(email: string, password: string): void {
+  cy.visit('/login');
+  cy.url().should('include', 'login');
+  cy.get('[formControlName="email"]').type(email);
+  cy.get('[formControlName="password"]').type(password);
+  cy.get('button').click();
+}
+Cypress.Commands.add('login', login);
+
 //
 // ***********************************************
 // This example commands.js shows you how to

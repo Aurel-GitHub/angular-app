@@ -1,6 +1,5 @@
-describe('My First Test', () => {
-  it('Visits the initial project page', () => {
-    cy.visit('/')
-    cy.contains('app is running!')
-  })
-})
+describe('First test', () => {
+  it('Write bad values in inputs and get error message', () => {
+    cy.visit('/login');
+  });
+});
