@@ -62,14 +62,24 @@ export class LoginComponent {
     }
     return '#1F2128';
   }
+  debugForm() {
+    console.log('form', this.form);
+  }
 
   handleForm() {
+    this.form.reset();
     if (!this.isSignupFormActived) {
       this.isSignupFormActived = true;
+      console.log('2', this.isSignupFormActived);
       this.haveAccountLabel = 'authentication.have_already_account';
       this.buttonLabel = 'authentication.button.label_signin';
     } else {
       this.isSignupFormActived = false;
+      this.firstname.clearValidators();
+      this.firstname.updateValueAndValidity();
+      this.lastname.clearValidators();
+      this.lastname.updateValueAndValidity();
+      console.log('3', this.isSignupFormActived);
       this.haveAccountLabel = 'authentication.dont_have_account';
       this.buttonLabel = 'authentication.button.label_signup';
     }
