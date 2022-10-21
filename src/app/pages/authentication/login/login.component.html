@@ -70,7 +70,7 @@
       </ng-container>
     </form>
     <app-errors-message [errorFromApi]="errorFromApi"></app-errors-message>
-    <button (click)="debugForm()">DEBUG</button>
+    <!-- <button (click)="debugForm()">DEBUG</button> -->
     <button type="submit" (click)="onSubmit()" [disabled]="!this.form.valid">
       <span> {{ 'authentication.button.label_signin' | translate }} </span>
     </button>

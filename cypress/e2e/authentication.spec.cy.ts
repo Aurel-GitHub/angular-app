@@ -50,11 +50,32 @@ describe('Register', () => {
     cy.get('[formControlName="email"]').type('toto@gmail.com');
     cy.get('[formControlName="password"]').type('123456789');
     cy.get('a').click();
+    cy.get('[formControlName="email"]').type('toto@gmail.com');
+    cy.get('[formControlName="password"]').type('123456789');
     cy.get('[formControlName="firstname"]').type('toto');
     cy.get('[formControlName="lastname"]').type('toto');
     cy.get('button').click();
+  });
+
+  it('Should go register form, write values and back to login form & submit', () => {
+    cy.visit('/login');
+    cy.url().should('include', 'login');
+    cy.get('a').click();
+    cy.get('[formControlName="email"]').type('toto@gmail.com');
+    cy.get('[formControlName="password"]').type('123456789');
+    cy.get('[formControlName="firstname"]').type('toto');
+    cy.get('[formControlName="lastname"]').should('have.value', '');
+    cy.get('a').click();
+    cy.get('[formControlName="email"]').type('toto@gmail.com');
+    cy.get('[formControlName="password"]').type('123456789');
     cy.login('toto@gmail.com', '123456789');
   });
-  //todo pre remplir le register retirer le firstname et retourner au login et avoir le btn valid
-  // todo -faire passer le test avec toute les bonnes infos
+
+  it('Should login & logout', () => {
+    cy.visit('/login');
+    cy.url().should('include', 'login');
+    cy.login('toto@gmail.com', '123456789');
+    cy.get('button').should('have.class', 'logout').click();
+    cy.url().should('include', 'login');
+  });
 });
