@@ -31,12 +31,12 @@ describe('AuthenticationService', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).true;
   });
 
   it('should login a user', () => {
     service.login(credentials).subscribe((response: IAuthentication) => {
-      expect(response).toEqual(userLogged);
+      expect(response).equal(userLogged);
     });
 
     const req = httpController.expectOne({
@@ -49,7 +49,7 @@ describe('AuthenticationService', () => {
 
   it('should signup a new user', () => {
     service.signup(credentials).subscribe((response: IAuthentication) => {
-      expect(response).toEqual(userLogged);
+      expect(response).equal(userLogged);
     });
 
     const req = httpController.expectOne({
@@ -62,7 +62,7 @@ describe('AuthenticationService', () => {
 
   it('should disconnect a  user', () => {
     service.disconnect().subscribe((response: IAuthentication) => {
-      expect(response).toEqual(userLogged);
+      expect(response).equal(userLogged);
     });
 
     const req = httpController.expectOne({
